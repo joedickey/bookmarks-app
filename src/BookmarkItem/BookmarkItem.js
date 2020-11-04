@@ -4,7 +4,7 @@ import BookmarksContext from '../BookmarksContext'
 import './BookmarkItem.css';
 import config from '../config'
 import PropTypes from 'prop-types'
-
+import { Link } from 'react-router-dom'
 function deleteBookmarkRequest(bookmarkId, callback) {
 
 
@@ -54,6 +54,12 @@ export default function BookmarkItem(props) {
           {props.description}
         </p>
         <div className='BookmarkItem__buttons'>
+          <button>
+            <Link to={`/update/${props.id}`}>
+              Update
+            </Link>
+            {' '}
+          </button>
           <button
             className='BookmarkItem__description'
             onClick={() => {

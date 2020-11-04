@@ -1,4 +1,4 @@
 export default {
-  API_ENDPOINT: `https://tf-ed-bookmarks-api.herokuapp.com/v3/bookmarks`,
-  API_KEY: process.env.REACT_APP_API_KEY
+  API_ENDPOINT: `http://localhost:8000/api/bookmarks`,
+  API_KEY: '7ae94250-8e96-44c8-bd87-ad38519c881e'
 }

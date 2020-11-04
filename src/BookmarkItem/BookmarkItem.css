@@ -30,3 +30,19 @@
   font-size: .8em;
   text-align: right;
 }
+
+.BookmarkItem a {
+  text-decoration: none;
+}
+
+.BookmarkItem a:link {
+  color: black;
+}
+
+.BookmarkItem a:visited {
+  color: black;
+}
+
+.BookmarkItem a:active {
+  color: black;
+}

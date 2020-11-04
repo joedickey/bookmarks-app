@@ -7,6 +7,7 @@ import config from './config';
 import './App.css';
 import BookmarksContext from './BookmarksContext'
 import Rating from './Rating/Rating'
+import UpdateBookmark from './UpdateBookmark/UpdateBookmark.js'
 
 
 
@@ -32,10 +33,18 @@ class App extends Component {
   deleteBookmark = bookmarkId => {
     const newBookmarks = this.state.bookmarks.filter(bm =>
       bm.id !== bookmarkId
+    )
+    this.setState({
+      bookmarks: newBookmarks
+    })
+  }
+
+  updateBookmark = updatedBookmark => {
+    this.setState({
+      bookmarks: this.state.bookmarks.map(bm =>
+        (bm.id !== updatedBookmark.id) ? bm : updatedBookmark
       )
-      this.setState({
-        bookmarks: newBookmarks
-      })
+    })
   }
 
   componentDidMount() {
@@ -60,7 +69,8 @@ class App extends Component {
     const  contextValue = {
       bookmarks: this.state.bookmarks,
       addBookmark: this.addBookmark,
-      deleteBookmark: this.deleteBookmark
+      deleteBookmark: this.deleteBookmark,
+      updateBookmark: this.updateBookmark
     }
 
     return (
@@ -82,6 +92,9 @@ class App extends Component {
                 rating: 4,
                 description: 'testing it'}]} />}}
             />
+            <Route 
+              path='/update/:bookmarkId'
+              component={UpdateBookmark}/>
           </div>
         </BookmarksContext.Provider>
       </main>
